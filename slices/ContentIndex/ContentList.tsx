@@ -11,9 +11,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 type ContentListProps = {
   items: Content.BlogPostDocument[] | Content.ProjectDocument[];
-  contentType: Content.BlogPostDocumentDataSlicesSlice["primary"]["content_type"];
-  fallbackItemImage: Content.BlogPostDocumentDataSlicesSlice["primary"]["fallback_item_image"];
-  viewMoreText: string;
+  contentType: "Blog" | "Project";
+  fallbackItemImage: any;
+  viewMoreText?: string;
 };
 
 export default function ContentList({
