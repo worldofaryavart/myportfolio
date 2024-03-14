@@ -1,0 +1,58 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "wore",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "word",
+							"type": "Text"
+						}
+					],
+					[
+						"timeperiod",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "practical",
+							"type": "Text"
+						}
+					],
+					[
+						"institution",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "until",
+							"type": "Text"
+						}
+					],
+					[
+						"desc",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Commodo incididunt deserunt incididunt ipsum in eu."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]
