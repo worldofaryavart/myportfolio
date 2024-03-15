@@ -1,4 +1,4 @@
-import { Content, isFilled } from "@prismicio/client";
+import { Content, isFilled, RichTextField } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import ContentList from "./ContentList";
@@ -7,8 +7,27 @@ import Heading from "@/components/Heading";
 /**
  * Props for `BlogPostIndex`.
  */
-export type BlogPostIndexProps =
-  SliceComponentProps<Content.BlogPostDocumentDataSlicesSlice>;
+// export type BlogPostIndexProps =
+//   SliceComponentProps<Content.ContentIndexSlice>;
+
+  // import { Content, isFilled, RichTextField } from "@prismicio/client";
+  // import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+  
+  /**
+   * Props for `BlogPostIndex`.
+   */
+  export type BlogPostIndexProps = SliceComponentProps<Content.ContentIndexSlice> & {
+    slice: {
+      primary: {
+        heading: RichTextField;
+        description: RichTextField;
+        content_type: string;
+        view_more_text: string;
+        fallback_item_image: Content.ImageBlockSlice;
+      };
+    };
+  };
+
 
 /**
  * Component for "BlogPostIndex" Slices.
