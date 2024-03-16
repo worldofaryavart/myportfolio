@@ -37,21 +37,6 @@
           }
         }
       },
-      "cta_link": {
-        "type": "Link",
-        "config": {
-          "label": "CTA Link",
-          "placeholder": "",
-          "select": null
-        }
-      },
-      "cta_label": {
-        "type": "Text",
-        "config": {
-          "label": "CTA Label",
-          "placeholder": ""
-        }
-      },
       "instagram_link": {
         "type": "Link",
         "config": {
