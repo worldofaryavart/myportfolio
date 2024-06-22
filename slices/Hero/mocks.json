@@ -17,6 +17,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "although",
 				"type": "Text"
+			},
+			"tagline2": {
+				"__TYPE__": "FieldContent",
+				"value": "us",
+				"type": "Text"
 			}
 		},
 		"items": []

@@ -19,8 +19,8 @@ export default function NavBar({
 
   return (
     <nav aria-label="Main navigation">
-      <ul className="flex flex-col justify-between rounded-b-lg bg-slate-50 px-4 py-2 md:m-4 md:flex-row md:items-center md:rounded-xl">
-        <div className="flex items-center justify-between">
+      <ul className="flex flex-col justify-between rounded-b-lg bg-slate-50 bg-gradient-to-r from-teal-400 to-blue-500px-4 py-2 md:m-4 md:flex-row md:items-center md:rounded-xl">
+        <div className="flex items-center justify-between mx-2">
           <NameLogo name={settings.data.name} />
           <button
             aria-expanded={open}
@@ -33,7 +33,7 @@ export default function NavBar({
         </div>
         <div
           className={clsx(
-            "fixed bottom-0 left-0 right-0 top-0 z-50 flex flex-col items-end gap-4 bg-slate-50 pr-4 pt-14 transition-transform duration-300 ease-in-out md:hidden",
+            "fixed bottom-0 left-0 right-0 top-0 z-50 flex flex-col items-end gap-4 bg-slate-50 bg-gradient-to-r from-teal-400 to-blue-500px-4 pr-4 pt-14 transition-transform duration-300 ease-in-out md:hidden",
             open ? "translate-x-0" : "translate-x-[100%]",
           )}
         >
@@ -76,7 +76,7 @@ export default function NavBar({
                   className="hidden text-4xl font-thin leading-[0] text-slate-400 md:inline"
                   aria-hidden="true"
                 >
-                  /
+                  |
                 </span>
               )}
             </React.Fragment>
@@ -130,9 +130,9 @@ function DesktopMenu({
             >
               <span
                 className={clsx(
-                  "absolute inset-0 z-0 h-full rounded bg-yellow-300 transition-transform  duration-300 ease-in-out group-hover:translate-y-0",
+                  "absolute inset-0 z-0 h-full rounded bg-yellow-300 transition-transform  duration-300 ease-in-out group-hover:translate-y-6",
                   pathname.includes(asLink(link) as string)
-                    ? "translate-y-6"
+                    ? "bg-yellow-500 translate-y-6"
                     : "translate-y-8",
                 )}
               />
@@ -144,18 +144,11 @@ function DesktopMenu({
               className="hidden text-4xl font-thin leading-[0] text-slate-400 md:inline"
               aria-hidden="true"
             >
-              /
+              |
             </span>
           )}
         </React.Fragment>
       ))}
-      {/* <li>
-        <Button
-          linkField={settings.data.cta_link}
-          label={settings.data.cta_label}
-          className="ml-3"
-        />
-      </li> */}
     </div>
   );
 }

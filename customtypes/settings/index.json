@@ -60,6 +60,14 @@
           "placeholder": "",
           "select": null
         }
+      },
+      "x_link": {
+        "type": "Link",
+        "config": {
+          "label": "X Link",
+          "placeholder": "",
+          "select": null
+        }
       }
     },
     "Seo and MetaData": {

@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "blog_section": {
+              "type": "SharedSlice"
+            },
+            "ai_section": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             }

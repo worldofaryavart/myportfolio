@@ -102,7 +102,10 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomeDocumentDataSlicesSlice = HeroSlice;
+type HomeDocumentDataSlicesSlice =
+  | BlogSectionSlice
+  | AiSectionSlice
+  | HeroSlice;
 
 /**
  * Content for homepage documents
@@ -408,7 +411,18 @@ interface SettingsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  linkedin_link: prismic.LinkField /**
+  linkedin_link: prismic.LinkField;
+
+  /**
+   * X Link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.x_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  x_link: prismic.LinkField /**
    * Meta Title field in *Settings*
    *
    * - **Field Type**: Text
@@ -464,6 +478,91 @@ export type AllDocumentTypes =
   | PageDocument
   | ProjectDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *AiSection → Primary*
+ */
+export interface AiSectionSliceDefaultPrimary {
+  /**
+   * Title field in *AiSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ai_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *AiSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ai_section.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button Link field in *AiSection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ai_section.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Label field in *AiSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ai_section.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * Image1 field in *AiSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ai_section.primary.image1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image1: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for AiSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AiSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AiSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AiSection*
+ */
+type AiSectionSliceVariation = AiSectionSliceDefault;
+
+/**
+ * AiSection Shared Slice
+ *
+ * - **API ID**: `ai_section`
+ * - **Description**: AiSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AiSectionSlice = prismic.SharedSlice<
+  "ai_section",
+  AiSectionSliceVariation
+>;
 
 /**
  * Primary content in *Biography → Primary*
@@ -548,6 +647,91 @@ type BiographySliceVariation = BiographySliceDefault;
 export type BiographySlice = prismic.SharedSlice<
   "biography",
   BiographySliceVariation
+>;
+
+/**
+ * Primary content in *BlogSection → Primary*
+ */
+export interface BlogSectionSliceDefaultPrimary {
+  /**
+   * Heading field in *BlogSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_section.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *BlogSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_section.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button Link field in *BlogSection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_section.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Label field in *BlogSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_section.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * Image field in *BlogSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_section.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for BlogSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BlogSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogSection*
+ */
+type BlogSectionSliceVariation = BlogSectionSliceDefault;
+
+/**
+ * BlogSection Shared Slice
+ *
+ * - **API ID**: `blog_section`
+ * - **Description**: BlogSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogSectionSlice = prismic.SharedSlice<
+  "blog_section",
+  BlogSectionSliceVariation
 >;
 
 /**
@@ -758,6 +942,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   tagline: prismic.KeyTextField;
+
+  /**
+   * TagLine2 field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.tagline2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline2: prismic.KeyTextField;
 }
 
 /**
@@ -973,10 +1167,18 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavItemItem,
       AllDocumentTypes,
+      AiSectionSlice,
+      AiSectionSliceDefaultPrimary,
+      AiSectionSliceVariation,
+      AiSectionSliceDefault,
       BiographySlice,
       BiographySliceDefaultPrimary,
       BiographySliceVariation,
       BiographySliceDefault,
+      BlogSectionSlice,
+      BlogSectionSliceDefaultPrimary,
+      BlogSectionSliceVariation,
+      BlogSectionSliceDefault,
       ContentIndexSlice,
       ContentIndexSliceDefaultPrimary,
       ContentIndexSliceVariation,

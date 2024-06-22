@@ -5,7 +5,7 @@ import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 import Bounded from "@/components/Bounded";
 import { isFilled } from "@prismicio/client";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaInstagram, FaX, FaXTwitter } from "react-icons/fa6";
 
 export default async function Footer() {
   const client = createClient();
@@ -20,12 +20,6 @@ export default async function Footer() {
           >
             {settings.data.name}
           </Link>
-          <span
-            className="hidden text-5xl font-extralight leading-[0] text-slate-400 sm:inline"
-            aria-hidden={true}
-          >
-            /
-          </span>
           <p className=" text-sm text-slate-300 ">
             © {new Date().getFullYear()} {settings.data.name}
           </p>
@@ -44,14 +38,14 @@ export default async function Footer() {
                     {label}
                   </PrismicNextLink>
                 </li>
-                {index < settings.data.nav_item.length - 1 && (
+                {/* {index < settings.data.nav_item.length - 1 && (
                   <span
                     className="text-4xl font-thin leading-[0] text-slate-400"
                     aria-hidden="true"
                   >
                     /
                   </span>
-                )}
+                )} */}
               </React.Fragment>
             ))}
           </ul>
@@ -82,6 +76,15 @@ export default async function Footer() {
               aria-label={settings.data.name + " on LinkedIn"}
             >
               <FaLinkedin />
+            </PrismicNextLink>
+          )}
+          {isFilled.link(settings.data.x_link) && (
+            <PrismicNextLink
+              field={settings.data.x_link}
+              className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-yellow-400"
+              aria-label={settings.data.name + " on X"}
+            >
+              <FaXTwitter/>
             </PrismicNextLink>
           )}
         </div>
