@@ -137,13 +137,13 @@ export default function ContentList({
       <ul
         ref={component}
         className="grid border-b border-b-slate-100"
-        onMouseLeave={onMouseLeave}
+        // onMouseLeave={onMouseLeave}
       >
         {items.map((post, index) => (
           <li
             key={index}
             ref={(el) => (itemsRef.current[index] = el)}
-            onMouseEnter={() => onMouseEnter(index)}
+            // onMouseEnter={() => onMouseEnter(index)}
             className="list-item opacity-0"
           >
             <a
